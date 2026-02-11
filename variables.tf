@@ -33,13 +33,13 @@ EOT
     location                  = string
     name                      = string
     resource_group_name       = string
-    hyper_v_generation        = optional(string, "V1")
+    hyper_v_generation        = optional(string) # Default: "V1"
     source_virtual_machine_id = optional(string)
     tags                      = optional(map(string))
-    zone_resilient            = optional(bool, false)
+    zone_resilient            = optional(bool) # Default: false
     data_disk = optional(object({
       blob_uri               = optional(string)
-      caching                = optional(string, "None")
+      caching                = optional(string) # Default: "None"
       disk_encryption_set_id = optional(string)
       lun                    = optional(number)
       managed_disk_id        = optional(string)
@@ -48,7 +48,7 @@ EOT
     }))
     os_disk = optional(object({
       blob_uri               = optional(string)
-      caching                = optional(string, "None")
+      caching                = optional(string) # Default: "None"
       disk_encryption_set_id = optional(string)
       managed_disk_id        = optional(string)
       os_state               = optional(string)
