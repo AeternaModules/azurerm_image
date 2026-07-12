@@ -1,3 +1,7 @@
+output "images_id" {
+  description = "Map of id values across all images, keyed the same as var.images"
+  value       = { for k, v in azurerm_image.images : k => v.id }
+}
 output "images_data_disk" {
   description = "Map of data_disk values across all images, keyed the same as var.images"
   value       = { for k, v in azurerm_image.images : k => v.data_disk }
