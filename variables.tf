@@ -37,7 +37,7 @@ EOT
     source_virtual_machine_id = optional(string)
     tags                      = optional(map(string))
     zone_resilient            = optional(bool) # Default: false
-    data_disk = optional(object({
+    data_disk = optional(list(object({
       blob_uri               = optional(string)
       caching                = optional(string) # Default: "None"
       disk_encryption_set_id = optional(string)
@@ -45,7 +45,7 @@ EOT
       managed_disk_id        = optional(string)
       size_gb                = optional(number)
       storage_type           = string
-    }))
+    })))
     os_disk = optional(object({
       blob_uri               = optional(string)
       caching                = optional(string) # Default: "None"

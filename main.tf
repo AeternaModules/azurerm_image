@@ -10,7 +10,7 @@ resource "azurerm_image" "images" {
   zone_resilient            = each.value.zone_resilient
 
   dynamic "data_disk" {
-    for_each = each.value.data_disk != null ? [each.value.data_disk] : []
+    for_each = each.value.data_disk != null ? each.value.data_disk : []
     content {
       blob_uri               = data_disk.value.blob_uri
       caching                = data_disk.value.caching
