@@ -20,7 +20,7 @@ output "images_name" {
 }
 output "images_os_disk" {
   description = "Map of os_disk values across all images, keyed the same as var.images"
-  value       = { for k, v in azurerm_image.images : k => v.os_disk if v.os_disk != null && length(v.os_disk) > 0 }
+  value       = { for k, v in azurerm_image.images : k => one(v.os_disk) if v.os_disk != null && length(v.os_disk) > 0 }
 }
 output "images_resource_group_name" {
   description = "Map of resource_group_name values across all images, keyed the same as var.images"
